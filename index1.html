@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Job Recommendation System</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='st1.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Job Recommendation System</h1>
+
+    <form action="/recommend" method="POST">
+
+        <textarea
+        name="skills"
+        placeholder="Enter skills separated by commas"></textarea>
+
+        <button type="submit">
+            Recommend Jobs
+        </button>
+
+    </form>
+
+    {% if jobs %}
+
+        <h2>Recommended Jobs</h2>
+
+        <ul>
+
+            {% for job in jobs %}
+                <li>{{ job }}</li>
+            {% endfor %}
+
+        </ul>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
